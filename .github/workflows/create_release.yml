@@ -14,16 +14,16 @@ jobs:
         with:
           go-version: "^1.17.6"
 
-      - run: go build -o apkrash_darwin_386
+      - run: go build -o apkrash_darwin_arm64
         env:
           GOOS: "darwin"
-          GOARCH: "386"
+          GOARCH: "arm64"
           CGO_ENABLED: 0
 
       - uses: actions/upload-artifact@v1
         with:
-          name: apkrash_darwin_386
-          path: apkrash_darwin_386
+          name: apkrash_darwin_arm64
+          path: apkrash_darwin_arm64
 
       - run: go build -o apkrash_darwin_amd64
         env:
@@ -97,7 +97,7 @@ jobs:
 
       - uses: actions/download-artifact@v1
         with:
-          name: apkrash_darwin_386
+          name: apkrash_darwin_arm64
 
       - uses: actions/download-artifact@v1
         with:
@@ -119,14 +119,14 @@ jobs:
         with:
           name: apkrash_windows_amd64
 
-      - name: Upload Release Assets - Darwin 386
+      - name: Upload Release Assets - Darwin ARM64
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }} 
-          asset_path: apkrash_darwin_386/apkrash_darwin_386
-          asset_name: apkrash_darwin_386
+          asset_path: apkrash_darwin_arm64/apkrash_darwin_arm64
+          asset_name: apkrash_darwin_arm64
           asset_content_type: application/octet-stream
 
 
