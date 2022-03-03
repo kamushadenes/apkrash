@@ -7,7 +7,7 @@
 
 
 <p align="center">
-  APKKrash is an Android APK security analysis toolkit focused on comparing APKs to detect tampering and repackaging.
+  APKrash is an Android APK security analysis toolkit focused on comparing APKs to detect tampering and repackaging.
 </p>
 
 <hr>
