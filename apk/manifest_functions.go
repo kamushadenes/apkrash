@@ -24,6 +24,18 @@ func (m *Manifest) GetActivities() []string {
 	return activities
 }
 
+func (m *Manifest) GetMainActivity() string {
+	for _, a := range m.Application.Activity {
+		for _, i := range a.IntentFilter {
+			if i.Action.Name == "android.intent.action.MAIN" {
+				return a.Name
+			}
+		}
+	}
+
+	return ""
+}
+
 func (m *Manifest) GetServices() []string {
 	var services []string
 	for _, s := range m.Application.Service {

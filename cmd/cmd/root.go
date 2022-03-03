@@ -18,7 +18,7 @@ var rootCmd = &cobra.Command{
 	Use:   "apkrash",
 	Short: "Android APK security analysis toolkit",
 	PersistentPreRunE: func(cmd *cobra.Command, args []string) error {
-		if outputFormat != "text" && outputFormat != "json" && outputFormat != "json_pretty" {
+		if outputFormat != "text" && outputFormat != "json" && outputFormat != "json_pretty" && outputFormat != "table" {
 			return fmt.Errorf("invalid output format: %s", outputFormat)
 		}
 
@@ -36,7 +36,7 @@ func Execute() {
 }
 
 func init() {
-	rootCmd.PersistentFlags().StringVarP(&outputFormat, "format", "o", "text", "Output format, one of text, json, json_pretty")
+	rootCmd.PersistentFlags().StringVarP(&outputFormat, "format", "o", "text", "Output format, one of text, json, json_pretty, table")
 	rootCmd.PersistentFlags().BoolVarP(&useColor, "color", "c", false, "Output with color (only valid for text mode)")
 	rootCmd.PersistentFlags().BoolVarP(&onlyDiffs, "onlyDiffs", "d", false, "Output only diffs (only valid for text mode)")
 }

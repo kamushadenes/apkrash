@@ -43,7 +43,7 @@ Available Commands:
 
 Flags:
   -c, --color           Output with color (only valid for text mode)
-  -o, --format string   Output format, one of text, json, json_pretty (default "text")
+  -o, --format string   Output format, one of text, json, json_pretty, table (default "text")
   -h, --help            help for apkrash
   -d, --onlyDiffs       Output only diffs (only valid for text mode)
 
@@ -98,6 +98,7 @@ apkrash compare -o json -f -l apk1.apk apk2.apk
 - [x] Add support for AndroidManifest.xml
 - [x] Add support for APKs
 - [x] Add support for JARs
+- [ ] Add support for AABs
 - [ ] Add support for downloading APKs from Play Store
 - [ ] Add support for downloading APKs from other stores
 

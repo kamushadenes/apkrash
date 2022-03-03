@@ -5,6 +5,7 @@ import (
 	"bytes"
 	"encoding/json"
 	"fmt"
+	"github.com/jedib0t/go-pretty/v6/table"
 	"github.com/kamushadenes/apkrash/utils"
 	"github.com/shogo82148/androidbinary"
 	"io/ioutil"
@@ -58,6 +59,7 @@ type APK struct {
 	Receivers      []string       `json:"receivers"`
 	Providers      []string       `json:"providers"`
 	Features       []string       `json:"features"`
+	FileSize       int64          `json:"fileSize"`
 }
 
 func (a *APK) Decompile() error {
@@ -235,6 +237,29 @@ func (a *APK) GetAnalysis(format string, includeFiles bool) (string, error) {
 	case "json_pretty":
 		b, err := json.MarshalIndent(a, "", "  ")
 		return string(b), err
+	case "table":
+		t := table.NewWriter()
+		t.AppendHeader(table.Row{"Field", "Value"})
+		t.AppendRows([]table.Row{{"Package Name", a.Manifest.Package}})
+		t.AppendSeparator()
+		t.AppendRows([]table.Row{{"Platform Build Version", a.Manifest.PlatformBuildVersionCode}})
+		t.AppendSeparator()
+		t.AppendRows([]table.Row{{"Main Activity", a.Manifest.GetMainActivity()}})
+		t.AppendSeparator()
+		t.AppendRows([]table.Row{{"Features", strings.Join(a.Manifest.GetFeatures(), "\n")}})
+		t.AppendSeparator()
+		t.AppendRows([]table.Row{{"Permissions", strings.Join(a.Manifest.GetPermissions(), "\n")}})
+		t.AppendSeparator()
+		t.AppendRows([]table.Row{{"Services", strings.Join(a.Manifest.GetServices(), "\n")}})
+		t.AppendSeparator()
+		t.AppendRows([]table.Row{{"Providers", strings.Join(a.Manifest.GetProviders(), "\n")}})
+		t.AppendSeparator()
+		t.AppendRows([]table.Row{{"Activities", strings.Join(a.Manifest.GetActivities(), "\n")}})
+		t.AppendSeparator()
+		t.AppendRows([]table.Row{{"Receivers", strings.Join(a.Manifest.GetReceivers(), "\n")}})
+		t.SetStyle(table.StyleLight)
+
+		return t.Render(), nil
 	case "text":
 		var writer bytes.Buffer
 
