@@ -52,10 +52,12 @@ Available Commands:
   jar         Convert APK to JAR using dex2jar
 
 Flags:
-  -c, --color           Output with color (only valid for text mode)
-  -o, --format string   Output format, one of text, json, json_pretty, table (default "text")
-  -h, --help            help for apkrash
-  -d, --onlyDiffs       Output only diffs (only valid for text mode)
+  -c, --color             Output with color (only valid for text mode)
+  -e, --email string      Email to use for downloading APKs from Google Play
+  -o, --format string     Output format, one of text, json, json_pretty, table (default "text")
+  -h, --help              help for apkrash
+  -d, --onlyDiffs         Output only diffs (only valid for text mode)
+  -w, --password string   Password to use for downloading APKs from Google Play
 
 Use "apkrash [command] --help" for more information about a command.
 ```
@@ -114,6 +116,7 @@ apkrash compare -o json -f -l apk1.apk apk2.apk
 
 ## Credits
 - Inspired by [AndroCompare](https://github.com/harismuneer/AndroCompare)
+- Google Play support provided by [@89z](https://github.com/89z/googleplay)
 
 ## Show your support
 
