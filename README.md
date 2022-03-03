@@ -98,7 +98,7 @@ apkrash compare -o json -f -l apk1.apk apk2.apk
 - [x] Add support for AndroidManifest.xml
 - [x] Add support for APKs
 - [x] Add support for JARs
-- [ ] Add support for AABs
+- [x] Add support for AABs
 - [ ] Add support for downloading APKs from Play Store
 - [ ] Add support for downloading APKs from other stores
 

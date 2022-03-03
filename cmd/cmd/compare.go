@@ -2,11 +2,9 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/gabriel-vasile/mimetype"
 	"github.com/kamushadenes/apkrash/apk"
 	"github.com/spf13/cobra"
 	"os"
-	"strings"
 )
 
 var compareCmd = &cobra.Command{
@@ -16,72 +14,19 @@ var compareCmd = &cobra.Command{
 	Args:       cobra.ExactArgs(2),
 	ArgAliases: []string{"file1", "file2"},
 	RunE: func(cmd *cobra.Command, args []string) error {
-		file1, err := os.ReadFile(args[0])
+		apk1, err := apk.ParseAPKInput(args[0], decompile)
 		if err != nil {
 			return err
 		}
-		file2, err := os.ReadFile(args[1])
+		defer os.RemoveAll(apk1.TmpDir)
+
+		apk2, err := apk.ParseAPKInput(args[1], decompile)
 		if err != nil {
 			return err
 		}
-		mtype1 := mimetype.Detect(file1)
-		mtype2 := mimetype.Detect(file2)
+		defer os.RemoveAll(apk2.TmpDir)
 
-		var apk1, apk2 apk.APK
-
-		switch strings.Split(mtype1.String(), ";")[0] {
-		case "text/xml":
-			err = apk1.ParseManifest(file1)
-			if err != nil {
-				return err
-			}
-		case "application/zip", "application/jar":
-			apk1.Filename = args[0]
-			err = apk1.ParseZIP()
-			if err != nil {
-				return err
-			}
-			if decompile {
-				err = apk1.Decompile()
-				if err != nil {
-					return err
-				}
-				err = apk1.ParseSources()
-				if err != nil {
-					return err
-				}
-			}
-		default:
-			return fmt.Errorf("unsupported file type: %s", mtype1.String())
-		}
-
-		switch strings.Split(mtype2.String(), ";")[0] {
-		case "text/xml":
-			err = apk2.ParseManifest(file2)
-			if err != nil {
-				return err
-			}
-		case "application/zip", "application/jar":
-			apk2.Filename = args[1]
-			err = apk2.ParseZIP()
-			if err != nil {
-				return err
-			}
-			if decompile {
-				err = apk2.Decompile()
-				if err != nil {
-					return err
-				}
-				err = apk2.ParseSources()
-				if err != nil {
-					return err
-				}
-			}
-		default:
-			return fmt.Errorf("unsupported file type: %s", mtype2.String())
-		}
-
-		comparison := apk1.Compare(&apk2)
+		comparison := apk1.Compare(apk2)
 		output, err := comparison.GetComparison(outputFormat, onlyDiffs, includeFiles)
 		if err != nil {
 			return err

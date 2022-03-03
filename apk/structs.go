@@ -17,6 +17,13 @@ var yellow = color.New(color.FgYellow).SprintFunc()
 var white = color.New(color.FgWhite).SprintFunc()
 var bold = color.New(color.Bold).SprintFunc()
 
+type BundleToolSpec struct {
+	SupportedABIs    []string `json:"supportedAbis"`
+	SupportedLocales []string `json:"supportedLocales"`
+	ScreenDensity    int      `json:"screenDensity"`
+	SdkVersion       int      `json:"sdkVersion"`
+}
+
 type APKComparison struct {
 	APK1                      *APK                    `json:"-"`
 	APK2                      *APK                    `json:"-"`
