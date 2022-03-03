@@ -5,7 +5,21 @@
   </a>
 </p>
 
-> Android APK security analysis toolkit
+
+<p align="center">
+  APKKrash is an Android APK security analysis toolkit focused on comparing APKs to detect tampering and repackaging.
+</p>
+
+<hr>
+
+## Features
+- Able to analyze pure Android Manifests, APKs, AABs and JARs.
+- Downloads APKs from Google Play Store to perform analysis.
+- Analyzes and detects differences on permissions, activities, services, receivers, providers, features and source code.
+- With optional dependencies, supports APK extraction, decompiling and conversion to JAR.
+- Outputs results as plain text, tables and JSON.
+
+<hr>
 
 ## Install
 
