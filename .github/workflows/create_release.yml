@@ -15,6 +15,7 @@ jobs:
           go-version: "^1.17.6"
 
       - run: go build -o apkrash_darwin_arm64
+        working-directory: "cmd/"
         env:
           GOOS: "darwin"
           GOARCH: "arm64"
@@ -23,9 +24,10 @@ jobs:
       - uses: actions/upload-artifact@v1
         with:
           name: apkrash_darwin_arm64
-          path: apkrash_darwin_arm64
+          path: cmd/apkrash_darwin_arm64
 
       - run: go build -o apkrash_darwin_amd64
+        working-directory: "cmd/"
         env:
           GOOS: "darwin"
           GOARCH: "amd64"
@@ -34,9 +36,10 @@ jobs:
       - uses: actions/upload-artifact@v1
         with:
           name: apkrash_darwin_amd64
-          path: apkrash_darwin_amd64
+          path: cmd/apkrash_darwin_amd64
 
       - run: go build -o apkrash_linux_386
+        working-directory: "cmd/"
         env:
           GOOS: "linux"
           GOARCH: "386"
@@ -45,9 +48,10 @@ jobs:
       - uses: actions/upload-artifact@v1
         with:
           name: apkrash_linux_386
-          path: apkrash_linux_386
+          path: cmd/apkrash_linux_386
 
       - run: go build -o apkrash_linux_amd64
+        working-directory: "cmd/"
         env:
           GOOS: "linux"
           GOARCH: "amd64"
@@ -56,9 +60,10 @@ jobs:
       - uses: actions/upload-artifact@v1
         with:
           name: apkrash_linux_amd64
-          path: apkrash_linux_amd64
+          path: cmd/apkrash_linux_amd64
 
       - run: go build -o apkrash_windows_386
+        working-directory: "cmd/"
         env:
           GOOS: "windows"
           GOARCH: "386"
@@ -67,9 +72,10 @@ jobs:
       - uses: actions/upload-artifact@v1
         with:
           name: apkrash_windows_386
-          path: apkrash_windows_386
+          path: cmd/apkrash_windows_386
 
       - run: go build -o apkrash_windows_amd64
+        working-directory: "cmd/"
         env:
           GOOS: "windows"
           GOARCH: "amd64"
@@ -78,7 +84,7 @@ jobs:
       - uses: actions/upload-artifact@v1
         with:
           name: apkrash_windows_amd64
-          path: apkrash_windows_amd64
+          path: cmd/apkrash_windows_amd64
 
   release:
     runs-on: ubuntu-latest
