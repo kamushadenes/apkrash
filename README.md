@@ -13,6 +13,7 @@
 <hr>
 
 ## Features
+
 - Able to analyze pure Android Manifests, APKs, AABs and JARs.
 - Downloads APKs from Google Play Store to perform analysis.
 - Analyzes and detects differences on permissions, activities, services, receivers, providers, features and source code.
@@ -30,18 +31,23 @@ go build -o apkrash
 ```
 
 ## Dependencies
+
 Those are optional non-Go dependencies that enable certain features.
 
-### apktool 
+### apktool
+
 For the `extract` command
 
-### bundletool 
+### bundletool
+
 To support `.aab` files
 
-###dex2jar
+### dex2jar
+
 For the `jar` command
 
 ### jadx
+
 For the `decompile` command and for using the `-l` flag to compare source code files
 
 ## Usage
@@ -77,32 +83,39 @@ Use "apkrash [command] --help" for more information about a command.
 ```
 
 ### Analyze an APK or Manifest
+
 ```shell
 apkrash analyze <file.apk or AndroidManifest.xml>
 ```
 
 ### Compare two APKs
+
 ```shell
 apkrash compare <file1.apk or AndroidManifest1.xml> <file2.apk or AndroidManifest2.xml>
 ```
 
 ### Decompile an APK using jadx
+
 ```shell
 apkrash decompile <file.apk> [output_dir]
 ```
 
 ### Extract an APK using apktool
+
 ```shell
 apkrash extract <file.apk> [output_dir]
 ```
 
 ### Convert APK to JAR using dex2jar
+
 ```shell
 apkrash jar <file.apk> [output_dir]
 ```
 
 ## Examples
+
 ### Compare two APKs showing only diffs with colored output
+
 ```shell
 apkrash compare -c -d apk1.apk apk2.apk
 ```
@@ -110,17 +123,21 @@ apkrash compare -c -d apk1.apk apk2.apk
 ![](.github/images/compare_example.png)
 
 ### Analyze an APK and output to JSON (pretty), including files and statistics
+
 ```shell
 apkrash analyze -o json_pretty -f apk.apk
 ```
 
 ### Compare two APKs and their source code, outputting to JSON
+
 *Note: this may take a few minutes as the APK needs to be decompiled using jadx*
+
 ```shell
 apkrash compare -o json -f -l apk1.apk apk2.apk
 ```
 
 ## Roadmap
+
 - [x] Add support for AndroidManifest.xml
 - [x] Add support for APKs
 - [x] Add support for JARs
@@ -129,8 +146,10 @@ apkrash compare -o json -f -l apk1.apk apk2.apk
 - [ ] Add support for downloading APKs from other stores
 
 ## Credits
+
 - Inspired by [AndroCompare](https://github.com/harismuneer/AndroCompare)
 - Google Play support provided by [@89z](https://github.com/89z/googleplay)
+- Binary Android Manifest support provided by [@shogo82148](https://github.com/shogo82148/androidbinary)
 
 ## Show your support
 
