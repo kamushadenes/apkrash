@@ -6,6 +6,7 @@ import (
 	"encoding/xml"
 	"fmt"
 	"github.com/gabriel-vasile/mimetype"
+	"github.com/kamushadenes/apkrash/store"
 	"io/ioutil"
 	"os"
 	"os/exec"
@@ -20,11 +21,34 @@ func ParseAndroidManifest(manifestText []byte) (*Manifest, error) {
 	return &manifest, err
 }
 
-func ParseAPKInput(arg string, decompile bool) (*APK, error) {
+func ParseAPKInput(arg string, decompile bool, email string, password string) (*APK, error) {
 	file, err := os.ReadFile(arg)
 	if err != nil {
-		return nil, err
+		if os.IsNotExist(err) {
+			fmt.Println("File not found:", arg)
+			fmt.Println("Attempting to download from Google Play Store")
+
+			tmpDir, err := ioutil.TempDir(os.TempDir(), "apkrash")
+			if err != nil {
+				return nil, err
+			}
+
+			tmpFile := path.Join(tmpDir, fmt.Sprintf("%s.apk", arg))
+
+			err = store.DownloadGooglePlayAPK(email, password, arg, tmpDir, tmpFile)
+			if err != nil {
+				return nil, err
+			}
+
+			file, err = os.ReadFile(arg)
+			if err != nil {
+				return nil, err
+			}
+		} else {
+			return nil, err
+		}
 	}
+
 	mtype := mimetype.Detect(file)
 
 	var apk APK

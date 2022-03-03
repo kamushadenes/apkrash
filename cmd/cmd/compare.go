@@ -14,13 +14,13 @@ var compareCmd = &cobra.Command{
 	Args:       cobra.ExactArgs(2),
 	ArgAliases: []string{"file1", "file2"},
 	RunE: func(cmd *cobra.Command, args []string) error {
-		apk1, err := apk.ParseAPKInput(args[0], decompile)
+		apk1, err := apk.ParseAPKInput(args[0], decompile, email, password)
 		if err != nil {
 			return err
 		}
 		defer os.RemoveAll(apk1.TmpDir)
 
-		apk2, err := apk.ParseAPKInput(args[1], decompile)
+		apk2, err := apk.ParseAPKInput(args[1], decompile, email, password)
 		if err != nil {
 			return err
 		}

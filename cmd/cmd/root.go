@@ -13,6 +13,8 @@ var useColor bool
 var onlyDiffs bool
 var includeFiles bool
 var decompile bool
+var email string
+var password string
 
 var rootCmd = &cobra.Command{
 	Use:   "apkrash",
@@ -39,4 +41,7 @@ func init() {
 	rootCmd.PersistentFlags().StringVarP(&outputFormat, "format", "o", "text", "Output format, one of text, json, json_pretty, table")
 	rootCmd.PersistentFlags().BoolVarP(&useColor, "color", "c", false, "Output with color (only valid for text mode)")
 	rootCmd.PersistentFlags().BoolVarP(&onlyDiffs, "onlyDiffs", "d", false, "Output only diffs (only valid for text mode)")
+
+	rootCmd.PersistentFlags().StringVarP(&email, "email", "e", "", "Email to use for downloading APKs from Google Play")
+	rootCmd.PersistentFlags().StringVarP(&password, "password", "w", "", "Password to use for downloading APKs from Google Play")
 }

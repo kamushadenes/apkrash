@@ -15,10 +15,20 @@ cd apkrash/cmd
 go build -o apkrash
 ```
 
-## Requirements
-- apktool
-- dex2jar
-- jadx
+## Dependencies
+Those are optional non-Go dependencies that enable certain features.
+
+### apktool 
+For the `extract` command
+
+### bundletool 
+To support `.aab` files
+
+###dex2jar
+For the `jar` command
+
+### jadx
+For the `decompile` command and for using the `-l` flag to compare source code files
 
 ## Usage
 
@@ -99,7 +109,7 @@ apkrash compare -o json -f -l apk1.apk apk2.apk
 - [x] Add support for APKs
 - [x] Add support for JARs
 - [x] Add support for AABs
-- [ ] Add support for downloading APKs from Play Store
+- [x] Add support for downloading APKs from Play Store
 - [ ] Add support for downloading APKs from other stores
 
 ## Credits

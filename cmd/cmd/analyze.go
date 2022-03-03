@@ -14,7 +14,7 @@ var analyzeCmd = &cobra.Command{
 	Args:       cobra.ExactArgs(1),
 	ArgAliases: []string{"file"},
 	RunE: func(cmd *cobra.Command, args []string) error {
-		apk, err := apk.ParseAPKInput(args[0], decompile)
+		apk, err := apk.ParseAPKInput(args[0], decompile, email, password)
 		if err != nil {
 			return err
 		}
