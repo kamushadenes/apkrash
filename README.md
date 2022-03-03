@@ -24,6 +24,10 @@
 
 ## Install
 
+You can download a pre-compiled binary from the [Releases](https://github.com/kamushadenes/apkrash/releases) page.
+
+Alternatively, you can install APKrash using the following commands:
+
 ```shell
 git clone https://github.com/kamushadenes/apkrash.git
 cd apkrash/cmd
