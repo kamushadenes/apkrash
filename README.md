@@ -1,10 +1,4 @@
 <h1 align="center">APKrash</h1>
-<p>
-  <a href="#" target="_blank">
-    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
-  </a>
-</p>
-
 
 <p align="center">
   APKrash is an Android APK security analysis toolkit focused on comparing APKs to detect tampering and repackaging.
