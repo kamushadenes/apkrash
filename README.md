@@ -148,9 +148,3 @@ apkrash compare -o json -f -l apk1.apk apk2.apk
 - Inspired by [AndroCompare](https://github.com/harismuneer/AndroCompare)
 - Google Play support provided by [@89z](https://github.com/89z/googleplay)
 - Binary Android Manifest support provided by [@shogo82148](https://github.com/shogo82148/androidbinary)
-
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
-<a href="https://www.buymeacoffee.com/kamushadenes"> <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" height="32" alt="kamushadenes" /></a>
