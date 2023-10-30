@@ -7,7 +7,7 @@ require (
 	github.com/fatih/color v1.15.0
 	github.com/gabriel-vasile/mimetype v1.4.3
 	github.com/jedib0t/go-pretty/v6 v6.4.9
-	github.com/shogo82148/androidbinary v1.0.3
+	github.com/shogo82148/androidbinary v1.0.4
 	github.com/spf13/cobra v1.7.0
 )
 
