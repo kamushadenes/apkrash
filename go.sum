@@ -31,8 +31,8 @@ github.com/refraction-networking/utls v1.0.0/go.mod h1:tz9gX959MEFfFN5whTIocCLUG
 github.com/rivo/uniseg v0.2.0 h1:S1pD9weZBuJdFmowNwbpi7BJ8TNftyUImj/0WQi72jY=
 github.com/rivo/uniseg v0.2.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
 github.com/russross/blackfriday/v2 v2.1.0/go.mod h1:+Rmxgy9KzJVeS9/2gXHxylqXiyQDYRxCVz55jmeOWTM=
-github.com/shogo82148/androidbinary v1.0.4 h1:aUE/pfFdjHHJNAFLlKPWrFX8MoA0jc286Q0CMyS4zuA=
-github.com/shogo82148/androidbinary v1.0.4/go.mod h1:FzpR5bLAXR3VsAUG4BRCFaUm0WV6YD4Ldu+m05tr9Vk=
+github.com/shogo82148/androidbinary v1.0.5 h1:7afvcNw+vT84R0ugrL/u/DIrGYylC66yNvt0Y0j7rrM=
+github.com/shogo82148/androidbinary v1.0.5/go.mod h1:FzpR5bLAXR3VsAUG4BRCFaUm0WV6YD4Ldu+m05tr9Vk=
 github.com/spf13/cobra v1.8.0 h1:7aJaZx1B85qltLMc546zn58BxxfZdR/W22ej9CFoEf0=
 github.com/spf13/cobra v1.8.0/go.mod h1:WXLWApfZ71AjXPya3WOlMsY9yMs7YeiHhFVlvLyhcho=
 github.com/spf13/pflag v1.0.5 h1:iy+VFUOCP1a+8yFto/drg2CJ5u0yRoB7fZw3DKv/JXA=
