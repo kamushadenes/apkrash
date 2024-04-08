@@ -6,7 +6,7 @@ require (
 	github.com/89z/googleplay v1.8.0
 	github.com/fatih/color v1.16.0
 	github.com/gabriel-vasile/mimetype v1.4.3
-	github.com/jedib0t/go-pretty/v6 v6.5.4
+	github.com/jedib0t/go-pretty/v6 v6.5.8
 	github.com/shogo82148/androidbinary v1.0.5
 	github.com/spf13/cobra v1.8.0
 )
@@ -22,6 +22,6 @@ require (
 	github.com/spf13/pflag v1.0.5 // indirect
 	golang.org/x/crypto v0.17.0 // indirect
 	golang.org/x/net v0.17.0 // indirect
-	golang.org/x/sys v0.16.0 // indirect
+	golang.org/x/sys v0.17.0 // indirect
 	google.golang.org/protobuf v1.33.0 // indirect
 )
