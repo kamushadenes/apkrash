@@ -1,6 +1,6 @@
 module github.com/kamushadenes/apkrash
 
-go 1.17
+go 1.23.4
 
 require (
 	github.com/89z/googleplay v1.8.0
