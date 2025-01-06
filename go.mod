@@ -5,7 +5,7 @@ go 1.23.4
 require (
 	github.com/89z/googleplay v1.8.0
 	github.com/fatih/color v1.18.0
-	github.com/gabriel-vasile/mimetype v1.4.7
+	github.com/gabriel-vasile/mimetype v1.4.8
 	github.com/jedib0t/go-pretty/v6 v6.6.5
 	github.com/shogo82148/androidbinary v1.0.5
 	github.com/spf13/cobra v1.8.1
