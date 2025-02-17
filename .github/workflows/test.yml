@@ -1,0 +1,47 @@
+name: Testing
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: "1.23.6"
+
+      - name: Install go-junit-report
+        run: |
+          export GOPATH="$HOME/go/"
+          export PATH=$PATH:$GOPATH/bin
+          go install github.com/jstemmer/go-junit-report@latest
+
+      - name: Download dependencies
+        run: go mod download
+
+      - name: Generate
+        run: go generate ./...
+
+      - name: Run tests
+        run: |
+          export GOPATH="$HOME/go/"
+          export PATH=$PATH:$GOPATH/bin
+          sudo go test -v ./... | tee tests.out
+          cat tests.out | go-junit-report -set-exit-code > report.xml
+          rm tests.out
+
+      - name: Summarize Test Results
+        if: always()
+        uses: test-summary/action@v2
+        with:
+          paths: report.xml
+          show: all

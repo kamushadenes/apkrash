@@ -2,31 +2,35 @@ name: Create Release
 
 on:
   push:
-    # run only against tags
     tags:
       - "*"
+  workflow_call:
+
+permissions:
+  contents: write
 
 jobs:
-  build:
+  create_release:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@master
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Fetch all tags
-        run: git fetch --force --tags
-
-      - name: Setup Go
+      - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version: "^1.23.6"
+          go-version: 1.23.6
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
 
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v6
         with:
           distribution: goreleaser
           version: latest
-          args: release --rm-dist
-          workdir: cmd/
+          args: release --clean
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
