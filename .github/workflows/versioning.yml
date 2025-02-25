@@ -1,29 +1,39 @@
-name: Versioning
+name: Automatic Versioning
 
 on:
   push:
     branches:
       - main
+  workflow_call:
+  workflow_dispatch:
 
 permissions:
   contents: write
+  packages: write
+  pull-requests: write
+
+concurrency:
+  group: versioning
+  cancel-in-progress: false
 
 jobs:
   versioning:
     runs-on: ubuntu-latest
+
+    outputs:
+      current-tag: ${{ steps.calculate-version.outputs.version-string }}
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
           fetch-tags: true
-      - name: calculate version
+
+      - name: Calculate version
         id: calculate-version
         uses: bitshifted/git-auto-semver@v1
         with:
           main_branch: main
           create_tag: true
           tag_prefix: "v"
-  release:
-    needs: [versioning]
-    uses: ./.github/workflows/release.yml
