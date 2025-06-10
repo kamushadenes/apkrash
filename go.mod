@@ -1,6 +1,7 @@
 module github.com/kamushadenes/apkrash
 
-go 1.23.6
+go 1.24.0
+
 toolchain go1.24.1
 
 require (
@@ -15,7 +16,7 @@ require (
 require (
 	github.com/89z/format v1.22.8 // indirect
 	github.com/andybalholm/brotli v1.1.1 // indirect
-	github.com/cloudflare/circl v1.5.0 // indirect
+	github.com/cloudflare/circl v1.6.1 // indirect
 	github.com/inconshreveable/mousetrap v1.1.0 // indirect
 	github.com/klauspost/compress v1.17.11 // indirect
 	github.com/mattn/go-colorable v0.1.13 // indirect
