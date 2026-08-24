@@ -5,9 +5,9 @@ go 1.25.0
 require (
 	github.com/89z/googleplay v1.8.0
 	github.com/fatih/color v1.19.0
-	github.com/gabriel-vasile/mimetype v1.4.13
-	github.com/jedib0t/go-pretty/v6 v6.7.10
-	github.com/shogo82148/androidbinary v1.0.5
+	github.com/gabriel-vasile/mimetype v1.4.15
+	github.com/jedib0t/go-pretty/v6 v6.8.3
+	github.com/shogo82148/androidbinary v1.0.6
 	github.com/spf13/cobra v1.10.2
 )
 
